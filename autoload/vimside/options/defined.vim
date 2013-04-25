@@ -127,12 +127,6 @@ function! vimside#options#defined#CheckValue(def, value, errors)
     else
       call add(errors, "Option '". def.name ."' has bad type: '". def.type ."'")
     endif
-  else
-    if def.type == g:OPTION_BOOLEAN_TYPE
-      if value != 0 && value != 1
-        call add(errors, "Option '". def.name ."' has bad Bool value: '". string(value) ."'")
-      endif
-    endif
 
     if has_key(def, "kind")
       if def.kind == g:OPTION_FILE_NAME_KIND
